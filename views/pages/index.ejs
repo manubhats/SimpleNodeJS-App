@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="/controllers/controller.js"></script>     
+  <% include ../partials/nav.ejs %>
+
+ <div class="container" ng-controller="AppCtrl1">
+ 
+      <h1>CSE 5335 Project-1 </h1>
+      
+      <p>This is a simple Node application deployed to Heroku.</p>
+   
+      <button ng-click="update()" class="btn btn-lg btn-default"><span class="glyphicon glyphicon-flash">Update</span></button>
+      
+     <!--  <button ng-click="visualize()" class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-flash"> Visualize JSON data</span></button> -->
+
+      <table class="table">
+        <tr>
+        <th>Name</th>
+        <th>LatLong</th>
+        <th>HighF</th>
+        <th>LowF</th>
+      </tr>
+      <tr ng-repeat="city in cities |filter:city.names| orderBy:-1">
+        <td>{{city.name}}</td>
+        <td>{{city.ll}}</td>
+        <td>{{city.highF}}</td>
+        <td>{{city.lowF}}</td>
+      </tr>
+      </table>
+    </div>
+
+
+</body>
+</html>
